@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "08E12F26-2D79-4A31-B310-B5F771BDBE6D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "preferredScreenCaptureFormat" : "screenshot",
+    "testExecutionOrdering" : "random",
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TurboCalculator.xcodeproj",
+        "identifier" : "CE8FE3F22B5598C70001E2C8",
+        "name" : "CalculatorUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
