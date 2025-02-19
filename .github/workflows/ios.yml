@@ -20,6 +20,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Get info
+        run: env
+      - name: Clean old files
+        run: |
+         rm -rf ./DerivedData
+         rm -rf ./Report
       - name: Setup env
         run: env
       - name: Build app
