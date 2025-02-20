@@ -43,7 +43,7 @@ jobs:
       - name: Convert to allure results
         if: ${{always()}}
         run: |
-          ./xcresults export /Users/maksimkorolkov/GIT/qa_guru_xctest_a4/Report/TurboCalculator.xcresult /Users/maksimkorolkov/allure-results
+          ./xcresults export ./Report/TurboCalculator.xcresult ./allure-results
 
       - name: Save allure results
         if: ${{always()}}
