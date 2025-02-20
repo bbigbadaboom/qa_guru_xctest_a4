@@ -26,10 +26,29 @@ jobs:
         run: |
          rm -rf ./DerivedData
          rm -rf ./Report
+         rm -rf xcresults
       - name: Setup env
-        run: env
+        run: |
+         Ruby -v
+         bundle install
       - name: Build app
-        run: pwd
+        run: fast lane iOS build_app
       - name: Run tests
-        run: pwd
-        
+        run: fast lane iOS build_app
+      - name: Instal xcresults
+        if: ${{always()}}
+        run: |
+         curl -OL https://github.com/eroshenkoam/xcresults/releases/latest/download/xcresults
+         chmod +x xcresults
+      - name: Convert to allure results
+        if: ${{always()}}
+        run: |
+          ./xcresults export /Users/maksimkorolkov/GIT/qa_guru_xctest_a4/Report/TurboCalculator.xcresult /Users/maksimkorolkov/allure-results
+
+      - name: Save allure results
+        if: ${{always()}}
+        uses: actions/upload-artifact@v4.6.0
+        with:
+         name: Allure
+         path: allure-results
+         retention-days: 30
