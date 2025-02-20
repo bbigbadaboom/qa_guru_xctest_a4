@@ -32,9 +32,9 @@ jobs:
          Ruby -v
          bundle install
       - name: Build app
-        run: fastlane iOS build_calculator
+        run: fastlane build_calculator
       - name: Run tests
-        run: fastlane iOS build_app
+        run: fastlane test_app
       - name: Instal xcresults
         if: ${{always()}}
         run: |
